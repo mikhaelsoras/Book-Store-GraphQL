@@ -1,17 +1,20 @@
 ﻿using GraphQL.Types;
+using MangaStore.DataAccess;
 using MangaStore.Database.Models;
-using MangaStore.Utilities;
 
 namespace MangaStore.Types
 {
     public class BookType : ObjectGraphType<Book>
     {
-        public BookType()
+        public BookType(IUnitOfWork unitOfWork)
         {
-            Field(x => x.Id);
-            Field(x => x.CoverValue);
-            Field(x => x.Title);
-            Field(x => x.IsUsed);
+            Field(book => book.Id);
+            Field(book => book.CoverValue);
+            Field(book => book.Title);
+            Field(book => book.IsUsed);
+
+            Field<ListGraphType<GenreType>>("genres",
+                resolve: context => unitOfWork.Genres.GetAllForBook(context.Source.Id));
         }
     }
 }

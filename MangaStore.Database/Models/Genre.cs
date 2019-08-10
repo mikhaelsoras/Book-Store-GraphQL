@@ -5,19 +5,21 @@ using System.Text;
 
 namespace MangaStore.Database.Models
 {
-    public class Category
+    public class Genre
     {
-        public Category(string description)
+        public Genre(string description)
         {
             Description = description ?? throw new ArgumentNullException(nameof(description));
         }
 
-        public Category()
+        public Genre()
         {
         }
 
         [Key]
         public int Id { get; set; }
         public string Description { get; set; }
+
+        public ICollection<BookGenre> BookGenres { get; set; }
     }
 }

@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore", "MangaStore.csproj", "{293D1C5A-1EC0-4165-B79E-7A9A5E270AF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore", "MangaStore\MangaStore.csproj", "{293D1C5A-1EC0-4165-B79E-7A9A5E270AF9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.DataAccess", "..\MangaStore.DataAccess\MangaStore.DataAccess.csproj", "{B27B498C-3153-406A-8CA0-D2E5BB2EE088}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.DataAccess", "MangaStore.DataAccess\MangaStore.DataAccess.csproj", "{B27B498C-3153-406A-8CA0-D2E5BB2EE088}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Database", "..\MangaStore.Database\MangaStore.Database.csproj", "{62316443-9BC8-4F18-9123-825D019C3CD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Database", "MangaStore.Database\MangaStore.Database.csproj", "{62316443-9BC8-4F18-9123-825D019C3CD8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Types", "..\MangaStore.Types\MangaStore.Types.csproj", "{26707E78-A513-462A-9F28-F0E865FF83CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Types", "MangaStore.Types\MangaStore.Types.csproj", "{26707E78-A513-462A-9F28-F0E865FF83CD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Utilities", "..\MangaStore.Utilities\MangaStore.Utilities.csproj", "{1281E69B-13EF-49B1-A148-35CBAB6A8C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Utilities", "MangaStore.Utilities\MangaStore.Utilities.csproj", "{1281E69B-13EF-49B1-A148-35CBAB6A8C38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

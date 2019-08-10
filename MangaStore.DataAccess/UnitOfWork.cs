@@ -13,7 +13,7 @@ namespace MangaStore.DataAccess
         {
             Context = context;
             Books = new BookRepository(context);
-            Categories = new CategoryRepository(context);
+            Genres = new GenreRepository(context);
         }
 
 
@@ -23,7 +23,7 @@ namespace MangaStore.DataAccess
         }
 
         public IBookRepository Books { get; private set; }
-        public ICategoryRepository Categories { get; private set; }
+        public IGenreRepository Genres { get; private set; }
 
         public void Dispose()
         {

@@ -13,6 +13,12 @@ namespace MangaStore.Queries
                 "books", 
                 resolve: context => unitOfWork.Books.GetAll()
             );
+
+            Field<BookType>(
+                "book",
+                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id"}),
+                resolve: context => unitOfWork.Books.Get(context.GetArgument<int>("id"))
+            );
         }
     }
 }

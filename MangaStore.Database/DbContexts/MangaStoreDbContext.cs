@@ -9,7 +9,8 @@ namespace MangaStore.Database.DbContexts
     public class MangaStoreDbContext : DbContext
     {
         public DbSet<Book> Books { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<BookGenre> BookGenres { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,6 +21,22 @@ namespace MangaStore.Database.DbContexts
 
             var connectionString = configuration.GetConnectionString("MangaStoreDb");
             optionsBuilder.UseSqlServer(connectionString);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BookGenre>().HasKey(bc => new { bc.IdBook, bc.IdGenre});
+
+            modelBuilder.Entity<BookGenre>()
+                .HasOne<Book>(sc => sc.Book)
+                .WithMany(s => s.BookGenres)
+                .HasForeignKey(sc => sc.IdBook);
+
+
+            modelBuilder.Entity<BookGenre>()
+                .HasOne<Genre>(sc => sc.Genre)
+                .WithMany(s => s.BookGenres)
+                .HasForeignKey(sc => sc.IdGenre);
         }
     }
 }

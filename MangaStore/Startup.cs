@@ -29,19 +29,20 @@ namespace MangaStore
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddSingleton<MangaStoreDbContext>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddDbContext<MangaStoreDbContext>();
 
             services.AddSingleton<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
             services.AddSingleton<IDocumentWriter, DocumentWriter>();
-
             services.AddSingleton<BookType>();
-            services.AddSingleton<CategoryType>();
+            services.AddSingleton<GenreType>();
             services.AddSingleton<BookQuery>();
-            services.AddSingleton<CategoryQuery>();
+            services.AddSingleton<GenreQuery>();
 
-            services.AddSingleton<ISchema, MangaStoreSchema>();
+            // This way of injecting solves the scope conflict created by BookQuery and DbContext
+            var sp = services.BuildServiceProvider();
+            services.AddSingleton<ISchema>(new MangaStoreSchema (new FuncDependencyResolver(type => sp.GetService(type))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

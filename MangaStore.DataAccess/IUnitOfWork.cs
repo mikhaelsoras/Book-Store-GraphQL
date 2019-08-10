@@ -9,6 +9,6 @@ namespace MangaStore.DataAccess
         void Commit();
 
         IBookRepository Books { get; }
-        ICategoryRepository Categories { get; }
+        IGenreRepository Genres { get; }
     }
 }

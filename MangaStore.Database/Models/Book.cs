@@ -13,6 +13,6 @@ namespace MangaStore.Database.Models
         public decimal CoverValue { get; set; }
         public bool IsUsed { get; set; }
 
-        public ICollection<Category> Categories { get; set; }
+        public ICollection<BookGenre> BookGenres { get; set; }
     }
 }

@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MangaStore.DataAccess\MangaStore.DataAccess.csproj" />
     <ProjectReference Include="..\MangaStore.Database\MangaStore.Database.csproj" />
     <ProjectReference Include="..\MangaStore.Utilities\MangaStore.Utilities.csproj" />
   </ItemGroup>

@@ -4,9 +4,9 @@ using MangaStore.Utilities;
 
 namespace MangaStore.Types
 {
-    public class CategoryType : ObjectGraphType<Category>
+    public class GenreType : ObjectGraphType<Genre>
     {
-        public CategoryType()
+        public GenreType()
         {
             Field(x => x.Id);
             Field(x => x.Description);
