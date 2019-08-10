@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using GraphQL;
 using GraphQL.Introspection;
 using GraphQL.Types;
-using MangaStore.Utilities.GraphQL;
+using MangaStore.GraphQl;
+using MangaStore.GraphQl.Generics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +29,18 @@ namespace MangaStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GraphQlQuery graphQlQuery)
         {
+            var executionOptions = ValidateGraphQuery(graphQlQuery);
+
+            var result = await _documentExecuter.ExecuteAsync(executionOptions);
+
+            if (result.Errors?.Count > 0)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        private ExecutionOptions ValidateGraphQuery(GraphQlQuery graphQlQuery)
+        {
             if (graphQlQuery is null)
                 throw new ArgumentNullException($"{nameof(graphQlQuery)} was not informed.");
 
@@ -38,12 +51,7 @@ namespace MangaStore.Controllers
                 Inputs = graphQlQuery.Variables?.ToInputs()
             };
 
-            var result = await _documentExecuter.ExecuteAsync(executionOptions);
-
-            if (result.Errors?.Count > 0)
-                return BadRequest(result);
-
-            return Ok(result);
+            return executionOptions;
         }
     }
 }

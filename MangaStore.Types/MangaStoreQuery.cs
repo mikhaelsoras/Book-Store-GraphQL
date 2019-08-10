@@ -1,9 +1,9 @@
 ﻿using GraphQL.Types;
 using MangaStore.DataAccess;
-using MangaStore.Types;
-using MangaStore.Types.Book;
+using MangaStore.GraphQl.Types.Books;
+using MangaStore.GraphQl.Types.Genres;
 
-namespace MangaStore.Queries
+namespace MangaStore.GraphQl
 {
     public class MangaStoreQuery : ObjectGraphType
     {

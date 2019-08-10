@@ -1,8 +1,7 @@
 ﻿using GraphQL.Types;
 using MangaStore.Database.Models;
-using MangaStore.Utilities;
 
-namespace MangaStore.Types
+namespace MangaStore.GraphQl.Types.Genres
 {
     public class GenreType : ObjectGraphType<Genre>
     {

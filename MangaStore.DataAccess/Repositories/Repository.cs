@@ -16,14 +16,16 @@ namespace MangaStore.DataAccess.Repositories
             DbContext = dbContext.Set<TEntity>();
         }
 
-        public void Add(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
             DbContext.Add(entity);
+            return entity;
         }
 
-        public void AddRange(IEnumerable<TEntity> entities)
+        public IEnumerable<TEntity> AddRange(IEnumerable<TEntity> entities)
         {
             DbContext.AddRange(entities);
+            return entities;
         }
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression)

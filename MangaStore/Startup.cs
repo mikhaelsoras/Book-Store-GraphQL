@@ -4,10 +4,9 @@ using GraphQL.Http;
 using GraphQL.Types;
 using MangaStore.DataAccess;
 using MangaStore.Database.DbContexts;
-using MangaStore.Queries;
-using MangaStore.Schemas;
-using MangaStore.Types;
-using MangaStore.Types.Book;
+using MangaStore.GraphQl;
+using MangaStore.GraphQl.Types.Books;
+using MangaStore.GraphQl.Types.Genres;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -36,9 +35,14 @@ namespace MangaStore
             services.AddSingleton<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
             services.AddSingleton<IDocumentWriter, DocumentWriter>();
+
             services.AddSingleton<BookType>();
+            services.AddSingleton<BookInputType>();
+
             services.AddSingleton<GenreType>();
+
             services.AddSingleton<MangaStoreQuery>();
+            services.AddSingleton<MangaStoreMutation>();
 
             // This way of injecting solves the scope conflict created by MangaStoreQuery and DbContext
             var sp = services.BuildServiceProvider();

@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.DataAccess", "Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Database", "MangaStore.Database\MangaStore.Database.csproj", "{62316443-9BC8-4F18-9123-825D019C3CD8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Types", "MangaStore.Types\MangaStore.Types.csproj", "{26707E78-A513-462A-9F28-F0E865FF83CD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.Utilities", "MangaStore.Utilities\MangaStore.Utilities.csproj", "{1281E69B-13EF-49B1-A148-35CBAB6A8C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStore.GraphQl", "MangaStore.Types\MangaStore.GraphQl.csproj", "{26707E78-A513-462A-9F28-F0E865FF83CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{26707E78-A513-462A-9F28-F0E865FF83CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26707E78-A513-462A-9F28-F0E865FF83CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26707E78-A513-462A-9F28-F0E865FF83CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1281E69B-13EF-49B1-A148-35CBAB6A8C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1281E69B-13EF-49B1-A148-35CBAB6A8C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1281E69B-13EF-49B1-A148-35CBAB6A8C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1281E69B-13EF-49B1-A148-35CBAB6A8C38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

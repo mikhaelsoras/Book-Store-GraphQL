@@ -15,8 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MangaStore.DataAccess\MangaStore.DataAccess.csproj" />
-    <ProjectReference Include="..\MangaStore.Types\MangaStore.Types.csproj" />
-    <ProjectReference Include="..\MangaStore.Utilities\MangaStore.Utilities.csproj" />
+    <ProjectReference Include="..\MangaStore.Types\MangaStore.GraphQl.csproj" />
   </ItemGroup>
 
 </Project>

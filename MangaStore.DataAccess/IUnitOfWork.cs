@@ -1,6 +1,5 @@
 ﻿using System;
 using MangaStore.DataAccess.Repositories.Contracts;
-using MangaStore.Utilities;
 
 namespace MangaStore.DataAccess
 {
