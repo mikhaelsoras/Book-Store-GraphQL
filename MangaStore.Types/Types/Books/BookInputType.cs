@@ -7,10 +7,9 @@ namespace MangaStore.GraphQl.Types.Books
     {
         public BookInputType()
         {
-            const Book reference = null;
-            Field<StringGraphType>(nameof(reference.Title));
-            Field<DecimalGraphType>(nameof(reference.CoverValue));
-            Field<BooleanGraphType>(nameof(reference.IsUsed));
+            Field<StringGraphType>(nameof(Book.Title));
+            Field<DecimalGraphType>(nameof(Book.CoverValue));
+            Field<BooleanGraphType>(nameof(Book.IsUsed));
         }
     }
 }
