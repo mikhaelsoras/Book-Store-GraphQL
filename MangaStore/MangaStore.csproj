@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GraphiQL" Version="1.2.0" />
     <PackageReference Include="GraphQL" Version="2.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -14,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MangaStore.DataAccess\MangaStore.DataAccess.csproj" />
+    <ProjectReference Include="..\MangaStore.Types\MangaStore.Types.csproj" />
     <ProjectReference Include="..\MangaStore.Utilities\MangaStore.Utilities.csproj" />
   </ItemGroup>
 

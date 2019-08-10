@@ -1,8 +1,12 @@
-﻿using GraphQL;
+﻿using GraphiQl;
+using GraphQL;
+using GraphQL.Http;
+using GraphQL.Types;
 using MangaStore.DataAccess;
-using MangaStore.DataAccess.Repositories;
-using MangaStore.DataAccess.Repositories.Contracts;
 using MangaStore.Database.DbContexts;
+using MangaStore.Queries;
+using MangaStore.Schemas;
+using MangaStore.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,13 +29,23 @@ namespace MangaStore
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<MangaStoreDbContext>();
+            services.AddSingleton<MangaStoreDbContext>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+
+            services.AddSingleton<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
+            services.AddSingleton<IDocumentWriter, DocumentWriter>();
+
+            services.AddSingleton<BookType>();
+            services.AddSingleton<CategoryType>();
+            services.AddSingleton<BookQuery>();
+            services.AddSingleton<CategoryQuery>();
+
+            services.AddSingleton<ISchema, MangaStoreSchema>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, MangaStoreDbContext mangaStoreDbContext)
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
@@ -39,7 +53,10 @@ namespace MangaStore
                 app.UseHsts();
 
             app.UseHttpsRedirection();
+            app.UseGraphiQl();
             app.UseMvc();
+
+            mangaStoreDbContext.EnsureSeedData();
         }
     }
 }

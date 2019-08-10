@@ -7,7 +7,7 @@ namespace MangaStore.DataAccess
 {
     public sealed class UnitOfWork : IUnitOfWork
     {
-        private MangaStoreDbContext Context { get; set; }
+        private readonly MangaStoreDbContext Context;
 
         public UnitOfWork(MangaStoreDbContext context)
         {

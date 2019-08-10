@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MangaStore.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class GraphQlController : ControllerBase
     {
@@ -35,12 +35,12 @@ namespace MangaStore.Controllers
             {
                 Schema = _schema,
                 Query = graphQlQuery.Query,
-                Inputs = graphQlQuery.Variables.ToInputs()
+                Inputs = graphQlQuery.Variables?.ToInputs()
             };
 
             var result = await _documentExecuter.ExecuteAsync(executionOptions);
 
-            if (result.Errors.Any())
+            if (result.Errors?.Count > 0)
                 return BadRequest(result);
 
             return Ok(result);
