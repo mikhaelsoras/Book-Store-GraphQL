@@ -1,10 +1,9 @@
 ﻿using GraphQL.Types;
 using MangaStore.DataAccess;
-using MangaStore.Database.Models;
 
-namespace MangaStore.Types
+namespace MangaStore.Types.Book
 {
-    public class BookType : ObjectGraphType<Book>
+    public class BookType : ObjectGraphType<Database.Models.Book>
     {
         public BookType(IUnitOfWork unitOfWork)
         {

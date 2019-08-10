@@ -7,6 +7,7 @@ using MangaStore.Database.DbContexts;
 using MangaStore.Queries;
 using MangaStore.Schemas;
 using MangaStore.Types;
+using MangaStore.Types.Book;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,10 +38,9 @@ namespace MangaStore
             services.AddSingleton<IDocumentWriter, DocumentWriter>();
             services.AddSingleton<BookType>();
             services.AddSingleton<GenreType>();
-            services.AddSingleton<BookQuery>();
-            services.AddSingleton<GenreQuery>();
+            services.AddSingleton<MangaStoreQuery>();
 
-            // This way of injecting solves the scope conflict created by BookQuery and DbContext
+            // This way of injecting solves the scope conflict created by MangaStoreQuery and DbContext
             var sp = services.BuildServiceProvider();
             services.AddSingleton<ISchema>(new MangaStoreSchema (new FuncDependencyResolver(type => sp.GetService(type))));
         }

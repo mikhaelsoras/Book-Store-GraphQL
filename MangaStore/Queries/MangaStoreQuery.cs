@@ -1,13 +1,13 @@
 ﻿using GraphQL.Types;
 using MangaStore.DataAccess;
 using MangaStore.Types;
-using MangaStore.Utilities;
+using MangaStore.Types.Book;
 
 namespace MangaStore.Queries
 {
-    public class BookQuery : ObjectGraphType
+    public class MangaStoreQuery : ObjectGraphType
     {
-        public BookQuery(IUnitOfWork unitOfWork)
+        public MangaStoreQuery(IUnitOfWork unitOfWork)
         {
             Field<ListGraphType<BookType>>(
                 "books", 
@@ -18,6 +18,17 @@ namespace MangaStore.Queries
                 "book",
                 arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id"}),
                 resolve: context => unitOfWork.Books.Get(context.GetArgument<int>("id"))
+            );
+
+            Field<ListGraphType<GenreType>>(
+                "genres",
+                resolve: context => unitOfWork.Genres.GetAll()
+            );
+
+            Field<GenreType>(
+                "genre",
+                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
+                resolve: context => unitOfWork.Genres.Get(context.GetArgument<int>("id"))
             );
         }
     }

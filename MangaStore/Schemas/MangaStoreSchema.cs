@@ -8,7 +8,7 @@ namespace MangaStore.Schemas
     {
         public MangaStoreSchema(IDependencyResolver dependencyResolver) : base(dependencyResolver)
         {
-            Query = dependencyResolver.Resolve<BookQuery>();
+            Query = dependencyResolver.Resolve<MangaStoreQuery>();
         }
     }
 }
