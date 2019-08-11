@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using MangaStore.Database.Models;
+using MangaStore.Database.Models.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -24,18 +25,9 @@ namespace MangaStore.Database.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BookGenre>().HasKey(bc => new { bc.IdBook, bc.IdGenre});
-
-            modelBuilder.Entity<BookGenre>()
-                .HasOne<Book>(sc => sc.Book)
-                .WithMany(s => s.BookGenres)
-                .HasForeignKey(sc => sc.IdBook);
-
-
-            modelBuilder.Entity<BookGenre>()
-                .HasOne<Genre>(sc => sc.Genre)
-                .WithMany(s => s.BookGenres)
-                .HasForeignKey(sc => sc.IdGenre);
+            modelBuilder.ApplyConfiguration(new BookGenreMap());
+            modelBuilder.ApplyConfiguration(new BookMap());
+            modelBuilder.ApplyConfiguration(new GenreMap());
         }
     }
 }
