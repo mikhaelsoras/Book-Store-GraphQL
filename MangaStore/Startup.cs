@@ -1,6 +1,6 @@
-﻿using GraphiQl;
-using GraphQL;
+﻿using GraphQL;
 using GraphQL.Http;
+using GraphQL.Server.Ui.Playground;
 using GraphQL.Types;
 using MangaStore.DataAccess;
 using MangaStore.Database.DbContexts;
@@ -58,7 +58,11 @@ namespace MangaStore
                 app.UseHsts();
 
             app.UseHttpsRedirection();
-            app.UseGraphiQl();
+            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions
+            {
+                Path = "/ui/playground"
+            });
+
             app.UseMvc();
 
             mangaStoreDbContext.EnsureSeedData();

@@ -9,7 +9,7 @@ namespace MangaStore.GraphQl.Types.Books
         public BookType(IUnitOfWork unitOfWork)
         {
             Field(book => book.Id);
-            Field(book => book.CoverValue);
+            Field(book => book.CoverValue, true);
             Field(book => book.Title);
             Field(book => book.IsUsed);
 
