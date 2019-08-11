@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MangaStore.Shared\MangaStore.Shared.csproj" />
     <ProjectReference Include="..\MangaStoreShared\MangaStore.Shared.csproj" />
   </ItemGroup>
 

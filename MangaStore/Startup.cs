@@ -8,7 +8,6 @@ using MangaStore.GraphQl;
 using MangaStore.GraphQl.GraphTypes.Books;
 using MangaStore.GraphQl.GraphTypes.Genres;
 using MangaStore.GraphQl.GraphTypes.Moneys;
-using MangaStore.GraphQl.Types.Moneys;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;

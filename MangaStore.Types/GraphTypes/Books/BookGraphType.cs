@@ -2,7 +2,7 @@
 using MangaStore.DataAccess;
 using MangaStore.Database.Models;
 using MangaStore.GraphQl.GraphTypes.Genres;
-using MangaStore.GraphQl.Types.Moneys;
+using MangaStore.GraphQl.GraphTypes.Moneys;
 
 namespace MangaStore.GraphQl.GraphTypes.Books
 {

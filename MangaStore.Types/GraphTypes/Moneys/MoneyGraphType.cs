@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
 using MangaStore.Shared.Models;
 
-namespace MangaStore.GraphQl.Types.Moneys
+namespace MangaStore.GraphQl.GraphTypes.Moneys
 {
     public class MoneyGraphType : ObjectGraphType<Money>
     {
