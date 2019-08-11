@@ -7,9 +7,11 @@ using MangaStore.Database.DbContexts;
 using MangaStore.GraphQl;
 using MangaStore.GraphQl.Types.Books;
 using MangaStore.GraphQl.Types.Genres;
+using MangaStore.GraphQl.Types.Moneys;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -41,6 +43,8 @@ namespace MangaStore
 
             services.AddSingleton<GenreType>();
 
+            services.AddSingleton<MoneyType>();
+
             services.AddSingleton<MangaStoreQuery>();
             services.AddSingleton<MangaStoreMutation>();
 
@@ -52,8 +56,13 @@ namespace MangaStore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, MangaStoreDbContext mangaStoreDbContext)
         {
+            mangaStoreDbContext.Database.Migrate();
+
             if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
+                mangaStoreDbContext.EnsureSeedData();
+            }
             else
                 app.UseHsts();
 
@@ -65,7 +74,6 @@ namespace MangaStore
 
             app.UseMvc();
 
-            mangaStoreDbContext.EnsureSeedData();
         }
     }
 }

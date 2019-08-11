@@ -9,12 +9,22 @@
     <Compile Remove="Migrations\20190811160854_Teste.Designer.cs" />
     <Compile Remove="Migrations\20190811161610_Teste.cs" />
     <Compile Remove="Migrations\20190811161610_Teste.Designer.cs" />
+    <Compile Remove="Migrations\20190811164226_MoneyAddedToBook.cs" />
+    <Compile Remove="Migrations\20190811164226_MoneyAddedToBook.Designer.cs" />
+    <Compile Remove="Migrations\20190811165252_MoneyAddedToBook.cs" />
+    <Compile Remove="Migrations\20190811165252_MoneyAddedToBook.Designer.cs" />
+    <Compile Remove="Migrations\20190811173534_teste.cs" />
+    <Compile Remove="Migrations\20190811173534_teste.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MangaStoreShared\MangaStore.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

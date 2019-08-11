@@ -4,14 +4,16 @@ using MangaStore.Database.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MangaStore.Database.Migrations
 {
     [DbContext(typeof(MangaStoreDbContext))]
-    partial class MangaStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190811173626_MoneyDecimalNullable")]
+    partial class MoneyDecimalNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

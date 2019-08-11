@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using MangaStore.Database.Models;
+using MangaStore.Shared.Models;
 using Microsoft.EntityFrameworkCore.Internal;
 
 namespace MangaStore.Database.DbContexts
@@ -28,21 +27,21 @@ namespace MangaStore.Database.DbContexts
             var pandoraBook = new Book
             {
                 Title = "Pandora Hearts",
-                CoverValue = 14.99m,
+                CoverPrice = new Money(14.99m, "BRL"),
                 IsUsed = false
             };
 
             var steinsGateBook = new Book
             {
                 Title = "Steins;Gate",
-                CoverValue = 17.49m,
+                CoverPrice = new Money(17.49m, "BRL"),
                 IsUsed = false
             };
 
             var deathNoteBook = new Book
             {
                 Title = "Death Note",
-                CoverValue = 24.00m,
+                CoverPrice = new Money(24.00m, "BRL"),
                 IsUsed = false
             };
 

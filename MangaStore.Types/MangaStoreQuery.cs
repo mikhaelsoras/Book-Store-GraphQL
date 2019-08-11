@@ -11,6 +11,7 @@ namespace MangaStore.GraphQl
         private readonly List<IEntityQuery> _queries = new List<IEntityQuery>();
         public MangaStoreQuery(IUnitOfWork unitOfWork)
         {
+            Name = "MangaStoreQuery";
             _queries.AddRange(new IEntityQuery[]
             {
                 new BookQuery(),

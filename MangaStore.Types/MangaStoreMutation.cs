@@ -11,6 +11,7 @@ namespace MangaStore.GraphQl
         private readonly List<IEntityMutation> _mutations = new List<IEntityMutation>();
         public MangaStoreMutation(IUnitOfWork unitOfWork)
         {
+            Name = "MangaStoreMutation";
             _mutations.AddRange(new IEntityMutation[]
             {
                 new BookMutation()

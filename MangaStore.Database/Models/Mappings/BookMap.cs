@@ -9,6 +9,8 @@ namespace MangaStore.Database.Models.Mappings
         {
             builder.HasKey(book => book.Id);
             builder.Property(book => book.Title).IsRequired();
+
+            builder.OwnsOne(book => book.CoverPrice);
         }
     }
 }

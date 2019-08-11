@@ -9,6 +9,7 @@ namespace MangaStore.GraphQl.Types.Genres
     {
         public GenreType(IUnitOfWork unitOfWork)
         {
+            Name = "Genre";
             Field(x => x.Id);
             Field(x => x.Description);
 

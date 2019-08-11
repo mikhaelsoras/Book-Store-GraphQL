@@ -32,7 +32,7 @@ namespace MangaStore.GraphQl.Mutations
                     var bookValues = context.GetArgument<Book>("book");
 
                     var book = unitOfWork.Books.Get(id) ?? throw new ArgumentException($"{nameof(Book.Id)} not informed.");
-                    book.CoverValue = bookValues.CoverValue;
+                    book.CoverPrice = bookValues.CoverPrice;
                     book.IsUsed = bookValues.IsUsed;
                     book.Title = bookValues.Title;
                     unitOfWork.Commit();
