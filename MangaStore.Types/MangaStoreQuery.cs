@@ -1,35 +1,29 @@
-﻿using GraphQL.Types;
+﻿using System.Collections.Generic;
+using GraphQL.Types;
 using MangaStore.DataAccess;
-using MangaStore.GraphQl.Types.Books;
-using MangaStore.GraphQl.Types.Genres;
+using MangaStore.GraphQl.Queries;
+using MangaStore.GraphQl.Queries.Contract;
 
 namespace MangaStore.GraphQl
 {
     public class MangaStoreQuery : ObjectGraphType
     {
+        private readonly List<IEntityQuery> _queries = new List<IEntityQuery>();
         public MangaStoreQuery(IUnitOfWork unitOfWork)
         {
-            Field<ListGraphType<BookType>>(
-                "books", 
-                resolve: context => unitOfWork.Books.GetAll()
-            );
+            _queries.AddRange(new IEntityQuery[]
+            {
+                new BookQuery(),
+                new GenreQuery()
+            });
 
-            Field<BookType>(
-                "book",
-                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id"}),
-                resolve: context => unitOfWork.Books.Get(context.GetArgument<int>("id"))
-            );
+            Build(unitOfWork);
+        }
 
-            Field<ListGraphType<GenreType>>(
-                "genres",
-                resolve: context => unitOfWork.Genres.GetAll()
-            );
-
-            Field<GenreType>(
-                "genre",
-                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
-                resolve: context => unitOfWork.Genres.Get(context.GetArgument<int>("id"))
-            );
+        private void Build(IUnitOfWork unitOfWork)
+        {
+            foreach (var query in _queries)
+                query.CreateQuery(this, unitOfWork);
         }
     }
 }
