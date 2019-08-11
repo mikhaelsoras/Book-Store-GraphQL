@@ -5,8 +5,9 @@ using GraphQL.Types;
 using MangaStore.DataAccess;
 using MangaStore.Database.DbContexts;
 using MangaStore.GraphQl;
-using MangaStore.GraphQl.Types.Books;
-using MangaStore.GraphQl.Types.Genres;
+using MangaStore.GraphQl.GraphTypes.Books;
+using MangaStore.GraphQl.GraphTypes.Genres;
+using MangaStore.GraphQl.GraphTypes.Moneys;
 using MangaStore.GraphQl.Types.Moneys;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,12 +39,13 @@ namespace MangaStore
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
             services.AddSingleton<IDocumentWriter, DocumentWriter>();
 
-            services.AddSingleton<BookType>();
-            services.AddSingleton<BookInputType>();
+            services.AddSingleton<BookGraphType>();
+            services.AddSingleton<BookInputGraphType>();
 
-            services.AddSingleton<GenreType>();
+            services.AddSingleton<GenreGraphType>();
 
-            services.AddSingleton<MoneyType>();
+            services.AddSingleton<MoneyGraphType>();
+            services.AddSingleton<MoneyInputGraphType>();
 
             services.AddSingleton<MangaStoreQuery>();
             services.AddSingleton<MangaStoreMutation>();

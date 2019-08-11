@@ -3,9 +3,9 @@ using MangaStore.Shared.Models;
 
 namespace MangaStore.GraphQl.Types.Moneys
 {
-    public class MoneyType : ObjectGraphType<Money>
+    public class MoneyGraphType : ObjectGraphType<Money>
     {
-        public MoneyType()
+        public MoneyGraphType()
         {
             Name = "Money";
             Description = "Represents Money";

@@ -2,8 +2,8 @@
 using GraphQL.Types;
 using MangaStore.DataAccess;
 using MangaStore.Database.Models;
+using MangaStore.GraphQl.GraphTypes.Books;
 using MangaStore.GraphQl.Mutations.Contract;
-using MangaStore.GraphQl.Types.Books;
 
 namespace MangaStore.GraphQl.Mutations
 {
@@ -11,9 +11,9 @@ namespace MangaStore.GraphQl.Mutations
     {
         public void CreateMutation(ObjectGraphType objectGraph, IUnitOfWork unitOfWork)
         {
-            objectGraph.Field<BookType>("addBook",
+            objectGraph.Field<BookGraphType>("addBook",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<BookInputType>> { Name = "book" }),
+                    new QueryArgument<NonNullGraphType<BookInputGraphType>> { Name = "book" }),
                 resolve: context =>
                 {
                     var book = context.GetArgument<Book>("book");
@@ -22,10 +22,10 @@ namespace MangaStore.GraphQl.Mutations
                     return book;
                 });
 
-            objectGraph.Field<BookType>("updateBook",
+            objectGraph.Field<BookGraphType>("updateBook",
                 arguments: new QueryArguments(
                     new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "id" },
-                    new QueryArgument<NonNullGraphType<BookInputType>> { Name = "book" }),
+                    new QueryArgument<NonNullGraphType<BookInputGraphType>> { Name = "book" }),
                 resolve: context =>
                 {
                     var id = context.GetArgument<int>("id");
