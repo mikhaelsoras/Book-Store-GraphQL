@@ -50,7 +50,6 @@ namespace MangaStore.Database.DbContexts
             {
                 new BookGenre(pandoraBook, mistery),
 
-                new BookGenre(steinsGateBook, shounen),
                 new BookGenre(steinsGateBook, scienceFiction),
 
                 new BookGenre(deathNoteBook, shounen),
