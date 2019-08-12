@@ -8,7 +8,6 @@
     <ProjectReference Include="..\MangaStore.DataAccess\MangaStore.DataAccess.csproj" />
     <ProjectReference Include="..\MangaStore.Database\MangaStore.Database.csproj" />
     <ProjectReference Include="..\MangaStore.Shared\MangaStore.Shared.csproj" />
-    <ProjectReference Include="..\MangaStoreShared\MangaStore.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
